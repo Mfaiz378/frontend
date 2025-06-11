@@ -1,0 +1,70 @@
+.hospital-container {
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: #f9fafc;
+  border-radius: 16px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.07);
+}
+
+.hospital-container h2 {
+  text-align: center;
+  color: #2d6cdf;
+  margin-bottom: 2rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.hospital-container ul {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 2rem;
+}
+
+.hospital-container li {
+  background: #fff;
+  margin-bottom: 1.5rem;
+  padding: 1.2rem 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(44, 62, 80, 0.07);
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  transition: box-shadow 0.2s;
+}
+
+.hospital-container li:hover {
+  box-shadow: 0 4px 24px rgba(44, 62, 80, 0.13);
+}
+
+.hospital-container b {
+  color: #2d6cdf;
+  font-size: 1.1rem;
+}
+
+.hospital-container a {
+  color: #fff;
+  background: #2d6cdf;
+  padding: 0.4rem 1rem;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 500;
+  display: inline-block;
+  margin-top: 0.3rem;
+  transition: background 0.2s;
+}
+
+.hospital-container a:hover {
+  background: #174ea6;
+}
+
+.hospital-container span {
+  color: #888;
+  font-size: 0.95rem;
+}
+
+.leaflet-container {
+  border-radius: 14px;
+  box-shadow: 0 2px 16px rgba(44, 62, 80, 0.09);
+  margin-bottom: 1rem;
+}

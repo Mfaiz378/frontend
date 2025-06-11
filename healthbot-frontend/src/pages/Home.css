@@ -1,0 +1,132 @@
+.main-header {
+  background: #6691e0;
+  padding: 1rem 0;
+  margin-bottom: 2rem;
+}
+.main-header nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+.main-header .logo {
+  color: #fff;
+  font-size: 1.7rem;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+.main-header nav div {
+  display: flex;
+  gap: 2rem;
+}
+.main-header nav a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1.1rem;
+  transition: color 0.2s;
+}
+.main-header nav a:hover {
+  color: #ffeb3b;
+}
+
+.home-container {
+  max-width: 950px;
+  margin: 2rem auto 3rem auto;
+  background: #f9fafc;
+  border-radius: 18px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.07);
+  padding: 2.5rem 2rem 2rem 2rem;
+  text-align: center;
+}
+
+.home-container h1 {
+  color: #6edf2d;
+  margin-bottom: 1.5rem;
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+
+.home-container p {
+  color: #444;
+  font-size: 1.25rem;
+  line-height: 1.7;
+  margin-bottom: 2.5rem;
+}
+
+.chatbot-section {
+  margin-top: 2.5rem;
+}
+
+.chatbot-section h2 {
+  color: #6edf2d;
+  margin-bottom: 2rem;
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+.chatbot-features {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+}
+
+.feature-card {
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 2px 12px rgba(44, 62, 80, 0.09);
+  padding: 1.5rem 1.2rem;
+  width: 230px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: box-shadow 0.2s;
+}
+.feature-card:hover {
+  box-shadow: 0 6px 24px rgba(44, 62, 80, 0.17);
+}
+.feature-card img {
+  width: 100%;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+}
+.feature-card h3 {
+  color: #2d6cdf;
+  font-size: 1.15rem;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+.feature-card p {
+  color: #555;
+  font-size: 1rem;
+  margin: 0;
+}
+
+.main-footer {
+  background: #f1f3f6;
+  text-align: center;
+  padding: 1rem 0;
+  color: #888;
+  font-size: 1rem;
+  margin-top: 2rem;
+  border-top: 1px solid #e0e0e0;
+}
+
+@media (max-width: 900px) {
+  .chatbot-features {
+    flex-direction: column;
+    align-items: center;
+  }
+  .feature-card {
+    width: 90%;
+    max-width: 350px;
+  }
+  .home-container {
+    padding: 1.2rem 0.5rem;
+  }
+}
