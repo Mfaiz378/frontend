@@ -41,7 +41,7 @@ const Chatbot = () => {
     setInput('');
 
     try {
-      const res = await axios.post('http://localhost:8080/api/chat', { message: input });
+      const res = await axios.post('https://backend-production-87a2.up.railway.app/api/chat', { message: input });
       const reply = res.data.reply || 'Sorry, I didn’t understand that.';
       setMessages(prev => [...prev, { text: reply, sender: 'bot' }]);
     } catch (err) {
