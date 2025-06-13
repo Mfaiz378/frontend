@@ -15,18 +15,19 @@ const Signup = () => {
     setError('');
     setSuccess('');
     try {
-      const res = await fetch('http://localhost:8080/api/auth/signup', {
+      const res = await fetch('https://healthbot-backend-production.up.railway.app/api/auth/signup', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(form),
       });
-      // Try to parse JSON, but fallback to text if not JSON
+
       let data;
       try {
         data = await res.json();
       } catch {
         data = { message: await res.text() };
       }
+
       if (res.ok) {
         setSuccess('Signup successful! Please check your email to verify your account, then login.');
         setForm({ username: '', password: '', email: '' });
