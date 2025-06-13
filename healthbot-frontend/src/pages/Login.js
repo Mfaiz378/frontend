@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import './Form.css';
 
 const Login = () => {
-  const [identifier, setIdentifier] = useState(''); // email or username
+  const [identifier, setIdentifier] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
 
@@ -11,18 +11,17 @@ const Login = () => {
     e.preventDefault();
 
     try {
-      const res = await fetch('http://localhost:8080/api/auth/login', {
+      const res = await fetch('https://healthbot-backend-production.up.railway.app/api/auth/login', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ identifier, password }), // send identifier (email or username)
+        body: JSON.stringify({ identifier, password }),
       });
 
       const data = await res.json();
 
       if (res.ok) {
         if (data.verified) {
-          // User is verified
-          localStorage.setItem('isAuthenticated', 'true'); // <-- ADD THIS LINE
+          localStorage.setItem('isAuthenticated', 'true');
           navigate('/');
         } else {
           alert('Please verify your email before logging in.');
