@@ -15,7 +15,8 @@ const Signup = () => {
     setError('');
     setSuccess('');
     try {
-      const res = await fetch('https://backend-production-87a2.up.railway.app/api/auth/signup', {
+      // const res = await fetch('https://backend-production-87a2.up.railway.app/api/auth/signup', {
+      const res = await fetch('backend-production-87a2.up.railway.app.railway.app/api/auth/signup', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(form),
