@@ -15,16 +15,17 @@ const Chatbot = () => {
   const messagesEndRef = useRef(null);
 
   // Trigger welcome message on mount
-  useEffect(() => {
-    axios.post('http://localhost:8080/api/chat', { message: '' })
-      .then(res => {
-        const reply = res.data.reply || 'Hello! How can I help you today?';
-        setMessages([{ text: reply, sender: 'bot' }]);
-      })
-      .catch(() => {
-        setMessages([{ text: 'Error reaching the server.', sender: 'bot' }]);
-      });
-  }, []);
+  // Trigger welcome message on mount
+useEffect(() => {
+  axios.post('https://backend-production-87a2.up.railway.app/api/chat', { message: '' })
+    .then(res => {
+      const reply = res.data.reply || 'Hello! How can I help you today?';
+      setMessages([{ text: reply, sender: 'bot' }]);
+    })
+    .catch(() => {
+      setMessages([{ text: 'Error reaching the server.', sender: 'bot' }]);
+    });
+}, []);
 
   useEffect(() => {
     scrollToBottom();
