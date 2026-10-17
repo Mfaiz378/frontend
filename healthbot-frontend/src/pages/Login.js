@@ -20,12 +20,8 @@ const Login = () => {
       const data = await res.json();
 
       if (res.ok) {
-        if (data.verified) {
-          localStorage.setItem('isAuthenticated', 'true');
-          navigate('/');
-        } else {
-          alert('Please verify your email before logging in.');
-        }
+        localStorage.setItem('isAuthenticated', 'true');
+        navigate('/');
       } else {
         alert(data.message || 'Login failed.');
       }
