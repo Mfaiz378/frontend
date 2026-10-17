@@ -1,3 +1,17 @@
+The syntax error is on this line:
+
+```javascript
+const res = await fetch('https://healthbot-backend-service.onrender.com/api/auth/login'), {
+
+```
+
+You placed a closing parenthesis `)` directly after the URL string, which terminates the `fetch()` call prematurely before the options object `{ method: 'POST', ... }` begins.
+
+Change that comma to go after the closing quote `', {` instead of `'), {`.
+
+Here is the complete, corrected code for `Login.js`:
+
+```javascript
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Form.css';
@@ -10,12 +24,12 @@ const Login = () => {
   const handleLogin = async (e) => {
     e.preventDefault();
 
-  try {
-    const res = await fetch('https://healthbot-backend-service.onrender.com/api/auth/login'), {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ identifier, password }),
-    });
+    try {
+      const res = await fetch('https://healthbot-backend-service.onrender.com/api/auth/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ identifier, password }),
+      });
 
       const data = await res.json();
 
@@ -42,12 +56,14 @@ const Login = () => {
         <input
           type="text"
           placeholder="Email or Username"
+          value={identifier}
           onChange={(e) => setIdentifier(e.target.value)}
           required
         />
         <input
           type="password"
           placeholder="Password"
+          value={password}
           onChange={(e) => setPassword(e.target.value)}
           required
         />
@@ -59,3 +75,5 @@ const Login = () => {
 };
 
 export default Login;
+
+```
