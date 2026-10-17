@@ -14,13 +14,22 @@ const Signup = () => {
     e.preventDefault();
     setError('');
     setSuccess('');
-    try {
-      // const res = await fetch('https://backend-production-87a2.up.railway.app/api/auth/signup', {
-      const res = await fetch('backend-production-87a2.up.railway.app.railway.app/api/auth/signup', {
+   try {
+      const res = await fetch('https://healthbot-backend-service.onrender.com/api/auth/signup', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(form),
       });
+```[cite: 8]
+
+---
+
+### Next Steps:
+1. Commit and push the changes in `Signup.js` to GitHub.
+2. Netlify will auto-deploy the update.
+3. Refresh your site (`[https://healthbotplus.netlify.app/signup](https://healthbotplus.netlify.app/signup)`)[cite: 7] and try signing up again.
+
+*(Note: Also check your `Login.js` or other authentication pages to ensure any other Railway URLs are replaced with `[https://healthbot-backend-service.onrender.com](https://healthbot-backend-service.onrender.com)` as well)[cite: 3, 5].*
 
       let data;
       try {
