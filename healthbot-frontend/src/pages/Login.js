@@ -1,17 +1,3 @@
-The syntax error is on this line:
-
-```javascript
-const res = await fetch('https://healthbot-backend-service.onrender.com/api/auth/login'), {
-
-```
-
-You placed a closing parenthesis `)` directly after the URL string, which terminates the `fetch()` call prematurely before the options object `{ method: 'POST', ... }` begins.
-
-Change that comma to go after the closing quote `', {` instead of `'), {`.
-
-Here is the complete, corrected code for `Login.js`:
-
-```javascript
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Form.css';
