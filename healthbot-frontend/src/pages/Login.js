@@ -50,7 +50,20 @@ const Login = () => {
           required
         />
         <button type="submit">Login</button>
-        <p onClick={() => navigate('/signup')}>Don't have an account? Signup</p>
+
+        <p 
+          onClick={() => navigate('/forgot-password')} 
+          style={{ cursor: 'pointer', fontSize: '0.9rem', color: '#007bff', marginTop: '0.8rem' }}
+        >
+          Forgot Password?
+        </p>
+
+        <p 
+          onClick={() => navigate('/signup')} 
+          style={{ cursor: 'pointer', marginTop: '0.5rem' }}
+        >
+          Don't have an account? Signup
+        </p>
       </form>
     </div>
   );
