@@ -1,16 +1,18 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './Form.css';
 
 const Signup = () => {
   const [form, setForm] = useState({ username: '', password: '', email: '' });
   const [error, setError] = useState('');
   const [success, setSuccess] = useState('');
+  const navigate = useNavigate();
 
-  const handleChange = e => {
+  const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = async e => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setError('');
     setSuccess('');
@@ -22,21 +24,18 @@ const Signup = () => {
         body: JSON.stringify(form),
       });
 
-      let data;
-      try {
-        data = await res.json();
-      } catch {
-        data = { message: await res.text() };
-      }
+      const data = await res.json().catch(() => null);
 
       if (res.ok) {
-        setSuccess('Signup successful! Please check your email to verify your account, then login.');
+        setSuccess(data?.message || 'Signup successful! You can now log in.');
         setForm({ username: '', password: '', email: '' });
+        setTimeout(() => navigate('/login'), 2000);
       } else {
-        setError(data.message || 'Signup failed. Please try again.');
+        setError(data?.message || 'Signup failed. Please try again.');
       }
     } catch (err) {
-      setError('Server error. Please try again later.');
+      console.error(err);
+      setError('Server connection error. Please try again later.');
     }
   };
 
@@ -70,10 +69,12 @@ const Signup = () => {
         />
         <button type="submit">Sign Up</button>
       </form>
+
       {error && <div style={{ color: 'red', marginTop: '1rem' }}>{error}</div>}
       {success && <div style={{ color: 'green', marginTop: '1rem' }}>{success}</div>}
-      <p onClick={() => (window.location.href = '/login')}>
-        Already have an account? <span style={{ textDecoration: 'underline', cursor: 'pointer' }}>Login</span>
+
+      <p onClick={() => navigate('/login')} style={{ cursor: 'pointer', marginTop: '1rem' }}>
+        Already have an account? <span style={{ textDecoration: 'underline' }}>Login</span>
       </p>
     </div>
   );
